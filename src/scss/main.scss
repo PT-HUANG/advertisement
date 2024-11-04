@@ -1,3 +1,5 @@
+/* Google Fonts*/
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=chinese-traditional"); 
 /* reset css */
 body {
   height: 100%;
@@ -81,7 +83,7 @@ input:invalid {
 
 /* basic setting */
 $body-bg: #f8f7fc;
-$body-color: #2c58aa;
+$body-color: #234686;
 $white: #fff;
 $main-blue: #001935;
 $secondary-blue: #3c88fd;
@@ -182,8 +184,14 @@ html {
 body {
   height: 100%;
   background: $body-bg;
-  color: $body-color;
-  font-family: "PingFang TC";
+  color: black;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .d-none {
@@ -283,7 +291,7 @@ body {
 }
 
 %standard-boxshadow {
-  box-shadow: 3px 0 13px 0 rgba(100, 112, 134, 0.1);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
 }
 
 .bg-white {
@@ -294,10 +302,68 @@ body {
   background: black;
 }
 
+.checkbox {
+  position: relative;
+  width: 21px;
+  height: 20px;
+  -webkit-appearance: none;
+  background-image: url('../../icons/checkbox.svg');
+  &:hover {
+    @extend %standard-boxshadow;
+    cursor: pointer;
+  }
+  &:checked::after{
+    content: '\2714';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+%grid {
+  display: grid;
+  grid-template-columns: 5fr 8fr repeat(2, 14fr) 20fr repeat(3, 14fr) 21fr;
+  grid-template-rows: 50px;
+  grid-template-areas: 
+  'checkbox id name advertiser description price start-time end-time actions';
+  justify-items: center;
+  align-items: center;
+  .checkbox-wrapper {
+    grid-area: checkbox;        
+  }
+  .id {
+    grid-area: id;
+  }
+  .name {
+    grid-area: name;
+  }
+  .advertiser {
+    grid-area: advertiser;
+  }
+  .description {
+    grid-area: description;
+  }
+  .price {
+    grid-area: price;
+  }
+  .start-time {
+    grid-area: start-time;
+  }
+  .end-time {
+    grid-area: end-time;
+  }
+  .actions {
+    grid-area: actions;
+  }
+}
+
+
 /* style start */
 .main-app {
   height: 100%;
 }
+/* Navbar */
 .nav {
   flex: 0 0 100px;
   background-color: $body-color;
@@ -323,4 +389,68 @@ body {
       }
     }
   }
+}
+/* Main Content */
+.main-content {
+  width: 100%;
+  h1 {
+    font-size: 48px;
+    font-weight: 400;
+    padding: 20px;
+  }
+  .table-wrapper {
+    overflow-y: scroll;
+    width: 100%;
+    height: 500px;
+    header {
+      width: 100%;
+      background-color: $light-gray;
+      @extend %grid;
+    }
+    .advertiser {
+      text-align: center;
+      & :nth-child(2) {
+        font-size: 0.9rem;
+        color: $dark-gray;
+      }
+    }
+    .price,
+    .start-time, 
+    .end-time {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding-left: 15px;
+    }
+    .price, .end-time {
+      margin-left: 30px;
+    }
+    .price img, 
+    .start-time img, 
+    .end-time img {
+      margin-left: 10px;
+      width: 20px;
+      height: 20px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .list {
+      text-align: center;
+      font-size: 0.8rem;
+      @extend %grid;
+      .advertiser {
+        & :nth-child(2) {
+          font-size: 0.8rem;
+        }
+      }
+      .description {
+        overflow: hidden; 
+      }
+      .actions img:hover{
+        cursor: pointer;
+      }
+    }
+  }
+
 }
