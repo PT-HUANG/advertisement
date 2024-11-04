@@ -58,7 +58,7 @@ In your browser, open index.html to see the website.
 
 ## Screenshots
 
-![image](https://github.com/LoS-Light/RandomPasswordGenerator/blob/main/screenshots/random-password-generator-01.png)
+![image](https://github.com/PT-HUANG/advertisement/blob/main/cover.png)
 
 ## License
 
