@@ -82,14 +82,28 @@ input:invalid {
 }
 
 /* basic setting */
-$body-bg: #f8f7fc;
-$body-color: #234686;
-$white: #fff;
-$main-blue: #001935;
-$secondary-blue: #3c88fd;
-$freedom-blue: #02b8ff;
-$dark-gray: #4a4a4a;
-$light-gray: #a7aaaf;
+:root {
+  --background-color: #f8f7fc;
+  --body-color: #234686;
+  --main-text-color: black;
+  --header-background-color: #a7aaaf;
+  --header-text-color: black;
+  --advertiser-color: #4a4a4a;
+  --odd-color: rgb(212, 210, 210);
+  --even-color: #f8f7fc;
+}
+
+// Dark Mode
+[data-theme="dark"] {
+  --background-color: #202020;
+  --body-color: #3a3a3a;
+  --main-text-color: white;
+  --header-background-color: #2e2e2e;
+  --header-text-color: #aaaaaa;
+  --advertiser-color: rgba(255, 255, 255, 37%);
+  --odd-color: #575757; 
+  --even-color: #3a3a3a;
+}
 
 $sizes: (
   25: 25%,
@@ -183,7 +197,7 @@ html {
 
 body {
   height: 100%;
-  background: $body-bg;
+  background: var(--background-color);
   color: black;
   font-family: "Roboto", sans-serif;
 }
@@ -359,7 +373,10 @@ body {
 }
 
 .odd {
-  background-color: rgb(212, 210, 210);
+  background-color: var(--odd-color);
+}
+.even {
+  background-color: var(--even-color);
 }
 .orange {
   background-color: orange;
@@ -373,7 +390,7 @@ body {
 /* Navbar */
 .nav {
   width: 100px;
-  background-color: $body-color;
+  background-color: var(--body-color);
   height: 100%;
   .home img {
     height: 20px;
@@ -390,6 +407,9 @@ body {
       img {
         width: 30px;
         height: 30px;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
@@ -401,6 +421,7 @@ body {
     font-size: 48px;
     font-weight: 400;
     padding: 20px;
+    color: var(--main-text-color);
   }
   .table-wrapper {
     position: relative;
@@ -411,14 +432,15 @@ body {
       position: fixed;
       z-index: 999;
       width: 88%;
-      background-color: $light-gray;
+      color: var(--header-text-color);
+      background-color: var(--header-background-color);
       @extend %grid;
     }
     .advertiser {
       text-align: center;
       & :nth-child(2) {
         font-size: 0.9rem;
-        color: $dark-gray;
+        color: var(--advertiser-color);
       }
     }
     .price,
@@ -490,3 +512,5 @@ body {
     }
   }
 }
+
+/* Dark Mode*/

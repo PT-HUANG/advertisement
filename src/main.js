@@ -82,6 +82,8 @@ const listItems = document.querySelectorAll('.list')
 for(let i=0; i<listItems.length; i++) {
     if(i%2 !== 0) {
         listItems[i].classList.add('odd')
+    } else {
+        listItems[i].classList.add('even')
     }
 }
 
@@ -96,9 +98,18 @@ checkboxes.forEach(element => {
 
 //POP UP toggle
 const button = document.querySelectorAll('.actions > img')
-const popup = document.querySelectorAll('.popup')
 button.forEach(element => {
     element.addEventListener('click', () => {
         element.nextElementSibling.classList.toggle('d-none')
     })
+})
+
+// Dark Mode
+const darkModeToggle = document.querySelector('#darkmode')
+darkModeToggle.addEventListener('change', (event) => {
+    if (event.target.checked) {
+        document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
 })
