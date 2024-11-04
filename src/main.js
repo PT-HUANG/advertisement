@@ -82,8 +82,6 @@ const listItems = document.querySelectorAll('.list')
 for(let i=0; i<listItems.length; i++) {
     if(i%2 !== 0) {
         listItems[i].classList.add('odd')
-    } else {
-        listItems[i].classList.add('even')
     }
 }
 
@@ -92,15 +90,7 @@ const checkboxes = document.querySelectorAll('.list .checkbox')
 checkboxes.forEach(element => {
     element.addEventListener('click', () => {
         const list = element.parentElement.parentElement
-        if (list.classList.contains('even')) {
-            list.classList.toggle('orange')
-        } else if (!list.classList.contains('even') && list.classList.contains('orange')) {
-            list.classList.toggle('orange')
-            list.classList.toggle('odd')
-        } else {
-            list.classList.toggle('odd')
-            list.classList.toggle('orange')
-        }
+        list.classList.toggle('orange')
     })
 })
 
