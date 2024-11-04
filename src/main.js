@@ -87,18 +87,19 @@ for(let i=0; i<listItems.length; i++) {
     }
 }
 
-// 勾選變橘色
+//勾選變橘色
 const checkboxes = document.querySelectorAll('.list .checkbox')
 checkboxes.forEach(element => {
     element.addEventListener('click', () => {
         const list = element.parentElement.parentElement
-        if (list.classList.contains('odd')) {
-            list.classList.remove('odd')
+        if (list.classList.contains('even')) {
             list.classList.toggle('orange')
-        } else if (list.classList.contains('even')) {
+        } else if (!list.classList.contains('even') && list.classList.contains('orange')) {
             list.classList.toggle('orange')
+            list.classList.toggle('odd')
         } else {
-            list.classList.add('odd')
+            list.classList.toggle('odd')
+            list.classList.toggle('orange')
         }
     })
 })

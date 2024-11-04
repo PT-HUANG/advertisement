@@ -358,6 +358,9 @@ body {
   }
 }
 
+.odd {
+  background-color: rgb(212, 210, 210);
+}
 .orange {
   background-color: orange;
 }
@@ -440,9 +443,6 @@ body {
     }
     .list-container {
       padding-top: 50px;
-      .odd {
-        background-color: rgb(212, 210, 210);
-      }
     }
     .list {
       text-align: center;
@@ -462,7 +462,6 @@ body {
           cursor: pointer;
         }
         .popup {
-          // 要刪除
           border: 1px solid gray;
           background-color: #fff;
           position: absolute;
