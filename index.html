@@ -7,7 +7,25 @@
   <link rel="stylesheet" href="dist/main.css">
 </head>
 <body>
-  <h1>Hello, Webpack Sass</h1>
+  <div class="main-app d-flex">
+    <nav class="nav d-flex flex-column">
+      <a href="#" class="home my-8">
+        <img src="icons/logo.svg" alt="logo">
+      </a>
+      <div class="options">
+        <div class="frame bg-white">
+          <img src="icons/frame.svg" alt="">
+        </div>
+        <div class="folder bg-black">
+          <img src="icons/folder.svg" alt="">
+        </div>
+        <div class="mail bg-black">
+          <img src="icons/mail.svg" alt="">
+        </div>
+      </div>
+    </nav>
+    <div class="main-content">主要內容放在這邊</div>
+  </div>
   <script src="dist/bundle.js"></script>
 </body>
 </html>
