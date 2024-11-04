@@ -358,6 +358,9 @@ body {
   }
 }
 
+.orange {
+  background-color: orange;
+}
 
 /* style start */
 .main-app {
@@ -365,7 +368,7 @@ body {
 }
 /* Navbar */
 .nav {
-  flex: 0 0 100px;
+  width: 100px;
   background-color: $body-color;
   height: 100%;
   .home img {
@@ -380,9 +383,6 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
-      &:hover {
-        border: 3px solid #02b8ff;
-      }
       img {
         width: 30px;
         height: 30px;
@@ -399,11 +399,14 @@ body {
     padding: 20px;
   }
   .table-wrapper {
+    position: relative;
     overflow-y: scroll;
     width: 100%;
     height: 500px;
     header {
-      width: 100%;
+      position: fixed;
+      z-index: 999;
+      width: 88%;
       background-color: $light-gray;
       @extend %grid;
     }
@@ -435,6 +438,12 @@ body {
         cursor: pointer;
       }
     }
+    .list-container {
+      padding-top: 50px;
+      .odd {
+        background-color: rgb(212, 210, 210);
+      }
+    }
     .list {
       text-align: center;
       font-size: 0.8rem;
@@ -447,10 +456,37 @@ body {
       .description {
         overflow: hidden; 
       }
-      .actions img:hover{
-        cursor: pointer;
+      .actions {
+        position: relative;
+        & > img:hover{
+          cursor: pointer;
+        }
+        .popup {
+          // 要刪除
+          border: 1px solid gray;
+          background-color: #fff;
+          position: absolute;
+          z-index: 10;
+          top: 0;
+          right: 30px;
+          width: 100px;
+          height: 90px;
+          .popup-items {
+            display: flex;
+            align-items: center;
+            height: 30px;
+            width: 100%;
+            &:hover {
+              cursor: pointer;
+              border: 1px solid black;
+            }
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
       }
     }
   }
-
 }
