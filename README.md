@@ -6,7 +6,8 @@
 
 - 左側 sidebar：
     - 正上方是一個 logo 可以被點擊。
-    - 下方有三個為一組的 link，當每一個 link 被選取之後（也就是在 active 狀態時），它的 icon 樣式會有所改變。以我們的 mockup 為例，目前 active 的連結會有反白的效果。
+    - 下方有四個為一組的 icons，當每一個 icon 被選取之後（也就是在 active 狀態時），它的樣式會有所改變。
+    - 最後一個icon點擊後可以切換正常模式或是dark mode
 
 - title：Campaign
 
